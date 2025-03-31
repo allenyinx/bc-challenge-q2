@@ -1,0 +1,20 @@
+2025/03/31 06:52:34 [notice] 1#1: using the "epoll" event method
+2025/03/31 06:52:34 [notice] 1#1: nginx/1.25.5
+2025/03/31 06:52:34 [notice] 1#1: built by gcc 13.2.1 20231014 (Alpine 13.2.1_git20231014) 
+2025/03/31 06:52:34 [notice] 1#1: OS: Linux 6.6.51-0-virt
+2025/03/31 06:52:34 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/03/31 06:52:34 [notice] 1#1: start worker processes
+2025/03/31 06:52:34 [notice] 1#1: start worker process 21
+2025/03/31 06:52:34 [notice] 1#1: start worker process 22
+2025/03/31 06:53:06 [info] 21#21: *1 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:07 [info] 22#22: *3 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:08 [info] 21#21: *5 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:35 [info] 21#21: *7 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:35 [info] 21#21: *9 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:36 [info] 21#21: *11 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:37 [info] 21#21: *13 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:38 [info] 21#21: *15 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:38 [info] 21#21: *17 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:39 [info] 21#21: *19 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:40 [info] 21#21: *21 client 172.17.0.1 closed keepalive connection
+2025/03/31 06:53:40 [info] 21#21: *23 client 172.17.0.1 closed keepalive connection

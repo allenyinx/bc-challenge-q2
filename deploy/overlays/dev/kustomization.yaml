@@ -1,0 +1,45 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Inherit from base configuration
+resources:
+  - ../../base
+
+# Production-specific patches
+patchesStrategicMerge:
+  - resource-limits.yaml
+
+# Configuration overrides
+configMapGenerator:
+  - name: pki-config
+    behavior: merge
+    files:
+      - ca.crt=secrets/ca.crt
+      - server.crt=secrets/server.crt
+      - server.key=secrets/server.key
+
+# Secret management
+secretGenerator:
+  - name: tls-certs
+    files:
+      - tls.crt=secrets/server.crt
+      - tls.key=secrets/server.key
+    type: kubernetes.io/tls
+
+# Production-specific vars
+vars:
+  - name: EFS_ID
+    objref:
+      kind: ConfigMap
+      name: global-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.EFS_ID
+
+# Resource customization
+commonLabels:
+  environment: dev
+  tier: proxy
+
+commonAnnotations:
+  owner: blockchain-bc

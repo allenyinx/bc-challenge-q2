@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bc-proxy
+  template:
+    metadata:
+      labels:
+        app: bc-proxy
+    spec:
+      securityContext:
+        runAsUser: 101
+        fsGroup: 101
+      containers:
+      - name: nginx
+        image: nginx:1.25-alpine
+        ports:
+        - containerPort: 8000
+        - containerPort: 8001
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: pki
+          mountPath: /etc/nginx/certs
+        - name: logs
+          mountPath: /var/log/nginx
+        readinessProbe:
+          httpGet:
+            path: /cosmos/node_info
+            port: 8001
+            scheme: HTTPS
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+      - name: pki
+        configMap:
+          name: pki-config
+      - name: logs
+        persistentVolumeClaim:
+          claimName: nginx-logs

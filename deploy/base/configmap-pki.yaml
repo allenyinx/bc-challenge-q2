@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pki-config
+data:
+  ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    YOUR_CA_CERT_HERE
+    -----END CERTIFICATE-----
+  server.crt: |
+    -----BEGIN CERTIFICATE-----
+    YOUR_SERVER_CERT_HERE
+    -----END CERTIFICATE-----
+  server.key: |
+    -----BEGIN PRIVATE KEY-----
+    YOUR_SERVER_KEY_HERE
+    -----END PRIVATE KEY-----
